@@ -33,10 +33,30 @@ public class US01_how_to_use_pinbar {
         Assert.assertEquals(actualH3,expectedH3);
         Assert.assertEquals(actualP,expectedText2);
 
-     //   Driver.closeDriver();
+        Driver.closeDriver();
 
     }
 
+    @Test
+    public void user_verified_image(){
+        // User login
+        VyTrackUtilities.loginAsStoreManager();
+
+        //Find and click "Learn how to use this space b
+        WebElement pinbar = Driver.getDriver().findElement(By.xpath("//a[.='Learn how to use this space']"));
+        BrowserUtils.sleep(2);
+        pinbar.click();
+
+        String expectedImagePath = "https://qa1.vytrack.com/bundles/oronavigation/images/pinbar-location.jpg";
+        //verify
+
+        //find actual imagine path
+        String actualImaginePath = Driver.getDriver().findElement(By.xpath("//img[@src='/bundles/oronavigation/images/pinbar-location.jpg']")).getAttribute("src");
+
+        Assert.assertEquals(expectedImagePath,actualImaginePath);
+        Driver.closeDriver();
+
+    }
 
 
 
