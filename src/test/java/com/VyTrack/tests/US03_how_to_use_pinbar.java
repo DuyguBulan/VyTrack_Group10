@@ -3,13 +3,12 @@ package com.VyTrack.tests;
 import com.VyTrack.utilities.BrowserUtils;
 import com.VyTrack.utilities.Driver;
 import com.VyTrack.utilities.VyTrackUtilities;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class US01_how_to_use_pinbar {
+public class US03_how_to_use_pinbar {
 
     @Test
     public void user_verified_text(){
