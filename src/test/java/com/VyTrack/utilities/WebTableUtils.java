@@ -5,15 +5,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class WebTableUtils {
+import java.util.ArrayList;
+import java.util.List;
 
-    public static void waitTillLoaderMaskDisappear() {
-        try {
-            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
-            WebElement loaderMask = Driver.getDriver().findElement(By.cssSelector("div[class='loader-mask shown']"));
-            wait.until(ExpectedConditions.invisibilityOf(loaderMask));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+public class WebTableUtils {
+    /**
+     * this method is using for finding vehicle model table headers
+     *
+     * @return List<String> titles
+     */
+
+    public static List<String> getHeadersFromVehicleModelTable() {
+        List<WebElement> headerElements = Driver.getDriver().findElements(By.xpath("//thead[@class='grid-header']//th//span[1]"));
+        List<String> headerTitles = new ArrayList<>();
+        headerElements.forEach(k -> headerTitles.add(k.getText()));
+        return headerTitles;
     }
 }
+
